@@ -22,7 +22,9 @@ body {
   flex-direction: column;
   background-color: rgb(17, 31, 43);
   border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
+
 .result-container {
   height: 60px;
   width: inherit;
