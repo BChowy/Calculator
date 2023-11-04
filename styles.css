@@ -48,3 +48,20 @@ body {
     font-size: larger;
     font-weight: bold;
 }
+
+.keypad {
+    display: flex;
+    text-align: center;
+    flex-wrap: wrap;
+}
+
+.keypad > button {
+    min-height: 65px;
+    min-width: 65px;
+    margin: 2.5px;
+    color: white;
+    background-color: rgb(33,48,61);
+    box-sizing: border-box;
+    border-radius: 100%;
+    font-size: large;
+}
