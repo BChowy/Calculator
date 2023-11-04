@@ -23,3 +23,28 @@ body {
   background-color: rgb(17, 31, 43);
   border-radius: 15px;
 }
+.result-container {
+  height: 60px;
+  width: inherit;
+  margin: 10px 0px 20px;
+  padding: 10px;
+  color: white;
+  text-align: end;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+  background-color: rgb(60, 60, 60);
+}
+
+.previous-result {
+    font-size: medium;
+    font-weight: bold;
+    color: gray;
+}
+
+.current-result {
+    font-size: larger;
+    font-weight: bold;
+}
