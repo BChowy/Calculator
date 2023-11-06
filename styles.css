@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Georama);
 
 * {
-    font-family: 'Georama', sans-serif;
+  font-family: "Georama", sans-serif;
 }
 
 body {
@@ -36,46 +36,48 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  
+
   background-color: rgb(60, 60, 60);
 }
 
 .previous-result {
-    font-size: medium;
-    font-weight: bold;
-    color: gray;
+  font-size: medium;
+  font-weight: bold;
+  color: gray;
 }
 
 .current-result {
-    font-size: larger;
-    font-weight: bold;
+  font-size: larger;
+  font-weight: bold;
 }
 
 .keypad {
-    display: flex;
-    text-align: center;
-    flex-wrap: wrap;
+  display: flex;
+  text-align: center;
+  flex-wrap: wrap;
 }
 
 .keypad > button {
-    min-height: 65px;
-    min-width: 65px;
-    margin: 2.5px;
-    background-color: rgb(33,48,61);
-    box-sizing: border-box;
-    border-radius: 100%;
-    font-size: large;
+  min-height: 65px;
+  min-width: 65px;
+  margin: 2.5px;
+  background-color: rgb(33, 48, 61);
+  box-sizing: border-box;
+  border-radius: 100%;
+  font-size: large;
 }
 
 #calculate {
-   flex-grow: 1;
-   border-radius: 50px;
+  flex-grow: 1;
+  border-radius: 50px;
 }
 
 footer {
   margin: auto;
 }
 
-.result-container, .keypad > button, footer {
+.result-container,
+.keypad > button,
+footer {
   color: white;
 }
