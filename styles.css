@@ -30,7 +30,6 @@ body {
   width: inherit;
   margin: 10px 0px 20px;
   padding: 10px;
-  color: white;
   text-align: end;
 
   display: flex;
@@ -61,7 +60,6 @@ body {
     min-height: 65px;
     min-width: 65px;
     margin: 2.5px;
-    color: white;
     background-color: rgb(33,48,61);
     box-sizing: border-box;
     border-radius: 100%;
@@ -71,4 +69,8 @@ body {
 #calculate {
    flex-grow: 1;
    border-radius: 50px;
+}
+
+.result-container, .keypad > button, footer {
+  color: white;
 }
