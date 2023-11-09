@@ -24,6 +24,22 @@ AC_KEY.addEventListener('click', () => {
     operation = '';
     console.log('AC');
 });
+NUMBER_KEYS.forEach(key => {
+    key.addEventListener('click', () => {
+
+        if (operation === '') {
+            firstOperand += key.innerText;
+            DISPLAY_INPUT.innerText = firstOperand;
+        }
+
+        else {
+            secondOperand += key.innerText;
+            DISPLAY_INPUT.innerText = secondOperand;
+        }
+
+    });
+});
+
 
 const add = (a, b) => a + b;
 const subtract = (a, b) => a - b;
