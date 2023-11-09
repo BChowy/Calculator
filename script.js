@@ -73,6 +73,18 @@ OPERATION_KEYS.forEach(key => {
     });
 });
 
+function operate(a, b, operation) {
+    switch (operation) {
+        case '+': firstOperand = add(a, b); break;
+        case '-': firstOperand = subtract(a, b); break;
+        case 'x': firstOperand = multiply(a, b); break;
+        case '/': firstOperand = divide(a, b); break;
+        case '%': firstOperand = reminder(a, b); break;
+    }
+
+    PRE_OPERATION.innerText = `${firstOperand} ${operation}`;
+    DISPLAY_INPUT.innerText = firstOperand;
+}
 
 const add = (a, b) => a + b;
 const subtract = (a, b) => a - b;
