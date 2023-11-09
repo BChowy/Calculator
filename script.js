@@ -7,6 +7,15 @@ const AC_KEY = document.querySelector('#clear');
 const C_KEY = document.querySelector('#backspace');
 const CALCULATE_KEY = document.querySelector('#calculate');
 
+let firstOperand = '';
+let secondOperand = '';
+let operation = '';
+let operationID;
+let previousOperation = '';
+
+DISPLAY_INPUT.innerText = '0';
+
+
 const add = (a, b) => a + b;
 const subtract = (a, b) => a - b;
 const multiply = (a, b) => a * b;
