@@ -41,6 +41,39 @@ NUMBER_KEYS.forEach(key => {
 });
 
 
+OPERATION_KEYS.forEach(key => {
+    key.addEventListener('click', () => {
+        operationID = key.getAttribute('id');
+
+        if (secondOperand !== '') {
+            operate(Number(firstOperand), Number(secondOperand), operation);
+            secondOperand = '';
+        }
+
+        switch (operationID) {
+            case 'add':
+                operation = '+';
+                break;
+            case 'subtract':
+                operation = '-';
+                break;
+            case 'multiply':
+                operation = 'x';
+                break;
+            case 'divide':
+                operation = '÷';
+                break;
+            case 'reminder':
+                operation = '%';
+                break;
+        }
+
+        PRE_OPERATION.innerText = `${firstOperand} ${operation}`;
+
+    });
+});
+
+
 const add = (a, b) => a + b;
 const subtract = (a, b) => a - b;
 const multiply = (a, b) => a * b;
