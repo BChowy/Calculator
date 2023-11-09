@@ -15,6 +15,15 @@ let previousOperation = '';
 
 DISPLAY_INPUT.innerText = '0';
 
+AC_KEY.addEventListener('click', () => {
+    DISPLAY_INPUT.innerText = '0';
+    PRE_OPERATION.innerText = '';
+    firstOperand = '';
+    secondOperand = '';
+    previousOperation = '';
+    operation = '';
+    console.log('AC');
+});
 
 const add = (a, b) => a + b;
 const subtract = (a, b) => a - b;
