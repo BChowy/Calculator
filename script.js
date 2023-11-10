@@ -23,6 +23,20 @@ AC_KEY.addEventListener('click', () => {
     operation = '';
     result = '';
 });
+CALCULATE_KEY.addEventListener('click', () => {
+    console.log('=');
+
+    if (secondOperand === '') {
+        secondOperand = firstOperand;
+    }
+    
+    operate(Number(firstOperand), Number(secondOperand), operation);
+    PRE_OPERATION.innerText = `${firstOperand} ${operation} ${secondOperand}`;
+    firstOperand = result;
+
+});
+
+
 NUMBER_KEYS.forEach(key => {
     key.addEventListener('click', () => {
 
@@ -44,6 +58,7 @@ OPERATION_KEYS.forEach(key => {
     key.addEventListener('click', () => {
         operationID = key.getAttribute('id');
 
+        if (firstOperand === '') firstOperand = 0;
         if (secondOperand !== '') {
             operate(Number(firstOperand), Number(secondOperand), operation);
             firstOperand = result;
