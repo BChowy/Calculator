@@ -31,7 +31,7 @@ CALCULATE_KEY.addEventListener('click', () => {
     }
     
     operate(Number(firstOperand), Number(secondOperand), operation);
-    PRE_OPERATION.innerText = `${firstOperand} ${operation} ${secondOperand}`;
+    PRE_OPERATION.innerText = `${firstOperand} ${operation} ${secondOperand} =`;
     firstOperand = result;
 
 });
