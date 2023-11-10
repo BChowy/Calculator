@@ -10,8 +10,8 @@ const CALCULATE_KEY = document.querySelector('#calculate');
 let firstOperand = '';
 let secondOperand = '';
 let operation = '';
+let result = '';
 let operationID;
-let previousOperation = '';
 
 DISPLAY_INPUT.innerText = '0';
 
@@ -20,9 +20,8 @@ AC_KEY.addEventListener('click', () => {
     PRE_OPERATION.innerText = '';
     firstOperand = '';
     secondOperand = '';
-    previousOperation = '';
     operation = '';
-    console.log('AC');
+    result = '';
 });
 NUMBER_KEYS.forEach(key => {
     key.addEventListener('click', () => {
@@ -47,6 +46,7 @@ OPERATION_KEYS.forEach(key => {
 
         if (secondOperand !== '') {
             operate(Number(firstOperand), Number(secondOperand), operation);
+            firstOperand = result;
             secondOperand = '';
         }
 
@@ -75,15 +75,15 @@ OPERATION_KEYS.forEach(key => {
 
 function operate(a, b, operation) {
     switch (operation) {
-        case '+': firstOperand = add(a, b); break;
-        case '-': firstOperand = subtract(a, b); break;
-        case 'x': firstOperand = multiply(a, b); break;
-        case '/': firstOperand = divide(a, b); break;
-        case '%': firstOperand = reminder(a, b); break;
+        case '+': result = add(a, b); break;
+        case '-': result = subtract(a, b); break;
+        case 'x': result = multiply(a, b); break;
+        case '/': result = divide(a, b); break;
+        case '%': result = reminder(a, b); break;
     }
 
-    PRE_OPERATION.innerText = `${firstOperand} ${operation}`;
-    DISPLAY_INPUT.innerText = firstOperand;
+    PRE_OPERATION.innerText = `${result} ${operation}`;
+    DISPLAY_INPUT.innerText = result;
 }
 
 const add = (a, b) => a + b;
