@@ -11,6 +11,7 @@ let firstOperand = '';
 let secondOperand = '';
 let operation = '';
 let result = '';
+let equalFlag = '';
 let operationID;
 
 DISPLAY_INPUT.innerText = '0';
@@ -22,6 +23,8 @@ AC_KEY.addEventListener('click', () => {
     secondOperand = '';
     operation = '';
     result = '';
+    equalFlag = '';
+});
 });
 CALCULATE_KEY.addEventListener('click', () => {
     console.log('=');
@@ -29,11 +32,11 @@ CALCULATE_KEY.addEventListener('click', () => {
     if (secondOperand === '') {
         secondOperand = firstOperand;
     }
-    
+
     operate(Number(firstOperand), Number(secondOperand), operation);
     PRE_OPERATION.innerText = `${firstOperand} ${operation} ${secondOperand} =`;
     firstOperand = result;
-
+    equalFlag = true;
 });
 
 
@@ -59,6 +62,10 @@ OPERATION_KEYS.forEach(key => {
         operationID = key.getAttribute('id');
 
         if (firstOperand === '') firstOperand = 0;
+        if (equalFlag) {
+            secondOperand = '';
+            equalFlag = false;
+        }
         if (secondOperand !== '') {
             operate(Number(firstOperand), Number(secondOperand), operation);
             firstOperand = result;
