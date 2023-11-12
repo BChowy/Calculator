@@ -40,8 +40,6 @@ C_KEY.addEventListener('click', () => {
 });
 
 CALCULATE_KEY.addEventListener('click', () => {
-    console.log('=');
-
     if (operation === '') return;
     if (secondOperand === '') {
         secondOperand = firstOperand;
@@ -79,7 +77,6 @@ NUMBER_KEYS.forEach(key => {
 
     });
 });
-
 
 OPERATION_KEYS.forEach(key => {
     key.addEventListener('click', () => {
@@ -127,7 +124,8 @@ function operate(a, b, operation) {
         case '/': result = divide(a, b); break;
         case '%': result = reminder(a, b); break;
     }
-
+    result = result.toString();
+    result = result.slice(0, (result.lastIndexOf('.')) + 3);
     PRE_OPERATION.innerText = `${result} ${operation}`;
     DISPLAY_INPUT.innerText = result;
 }
