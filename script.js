@@ -41,6 +41,7 @@ C_KEY.addEventListener('click', () => {
 CALCULATE_KEY.addEventListener('click', () => {
     console.log('=');
 
+    if (operation === '') return;
     if (secondOperand === '') {
         secondOperand = firstOperand;
     }
