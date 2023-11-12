@@ -25,7 +25,19 @@ AC_KEY.addEventListener('click', () => {
     result = '';
     equalFlag = '';
 });
+
+C_KEY.addEventListener('click', () => {
+    if (secondOperand === '') {
+        firstOperand = firstOperand.slice(0, -1);
+        DISPLAY_INPUT.innerText = firstOperand;
+        console.log(firstOperand);
+    }
+    else {
+        secondOperand = secondOperand.slice(0, -1);
+        DISPLAY_INPUT.innerText = secondOperand;
+    }
 });
+
 CALCULATE_KEY.addEventListener('click', () => {
     console.log('=');
 
