@@ -6,6 +6,7 @@ const PRE_OPERATION = document.querySelector('.display-operation');
 const AC_KEY = document.querySelector('#clear');
 const C_KEY = document.querySelector('#backspace');
 const CALCULATE_KEY = document.querySelector('#calculate');
+const FRACTION_KEY = document.querySelector('#fraction');
 
 let firstOperand = '';
 let secondOperand = '';
@@ -52,6 +53,16 @@ CALCULATE_KEY.addEventListener('click', () => {
     equalFlag = true;
 });
 
+FRACTION_KEY.addEventListener('click', () => {
+    if (secondOperand === '') {
+        if (firstOperand.includes('.')) return;
+        firstOperand = firstOperand.concat('.');
+    }
+    else {
+        if (secondOperand.includes('.')) return;
+        secondOperand = secondOperand.concat('.');
+    }
+});
 
 NUMBER_KEYS.forEach(key => {
     key.addEventListener('click', () => {
