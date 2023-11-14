@@ -76,6 +76,10 @@ footer {
   margin: auto;
 }
 
+footer > a {
+  color: white;
+}
+
 .result-container,
 .keypad > button,
 footer {
