@@ -71,6 +71,10 @@ NUMBER_KEYS.forEach(key => {
         }
 
         else {
+            if (equalFlag) {
+                secondOperand = '';
+                equalFlag = false;
+            }
             secondOperand += key.innerText;
             DISPLAY_INPUT.innerText = secondOperand;
         }
@@ -124,7 +128,7 @@ function operate(a, b, operation) {
         case '/': result = divide(a, b); break;
         case '%': result = reminder(a, b); break;
     }
-    if ((result+'').includes('.')) result = result.toFixed(2);
+    if ((result + '').includes('.')) result = result.toFixed(2);
     PRE_OPERATION.innerText = `${result} ${operation}`;
     DISPLAY_INPUT.innerText = result;
 }
