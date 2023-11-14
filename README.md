@@ -1,5 +1,8 @@
 # Calculator
 
+### Live Demo
+You can view the live Demo [HERE](https://bchowy.github.io/calculator/)
+
 ## Project Overview
 
 A simple calculator to perform arithmetic operations.
