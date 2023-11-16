@@ -159,6 +159,25 @@ function operate(a, b, operation) {
     DISPLAY_INPUT.innerText = result;
 }
 
+function handleKeyDown(event) {
+    const key = event.key;
+
+    if (key === 'Enter' || key === '=') {
+        handleCalculate();
+    } else if (key === 'Backspace') {
+        handleBackspace();
+    } else if (key === '.') {
+        handleFraction();
+    } else if (key === '+' || key === '-' || key === '*' || key === 'x' || key === '/') {
+        handleOperationKeyBySymbol(key);
+    } else if (/\d/.test(key)) {
+        handleNumberKey(key, true);
+    } else {
+        return;
+    }
+}
+
+
 const add = (a, b) => a + b;
 const subtract = (a, b) => a - b;
 const multiply = (a, b) => a * b;
