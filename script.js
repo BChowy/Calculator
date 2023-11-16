@@ -84,19 +84,19 @@ function handleFraction() {
     }
 }
 
-function handleNumberKey() {
-    const key = this.innerText;
+function handleNumberKey(keyValue, fromKeyDown) {
+    const key = fromKeyDown ? keyValue : this.innerText;
 
     if (operation === '') {
         firstOperand += key;
-        DISPLAY_INPUT.innerText = firstOperand;
+        updateDisplay();
     } else {
         if (equalFlag) {
             secondOperand = '';
             equalFlag = false;
         }
         secondOperand += key;
-        DISPLAY_INPUT.innerText = secondOperand;
+        updateDisplay();
     }
 }
 
@@ -177,6 +177,14 @@ function handleKeyDown(event) {
     }
 }
 
+
+function updateDisplay() {
+    if (operation === '') {
+        DISPLAY_INPUT.innerText = firstOperand;
+    } else {
+        DISPLAY_INPUT.innerText = secondOperand;
+    }
+}
 
 const add = (a, b) => a + b;
 const subtract = (a, b) => a - b;
