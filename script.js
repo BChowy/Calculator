@@ -34,6 +34,8 @@ OPERATION_KEYS.forEach(key => {
     key.addEventListener('click', handleOperationKey);
 });
 
+document.addEventListener('keydown', handleKeyDown);
+
 // Functions
 function resetCalculator() {
     DISPLAY_INPUT.innerText = '0';
