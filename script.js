@@ -177,6 +177,29 @@ function handleKeyDown(event) {
     }
 }
 
+function handleOperationKeyBySymbol(key) {
+    let operationKey = null;
+
+    switch (key) {
+        case '+':
+            operationKey = document.querySelector('#add');
+            break;
+        case '-':
+            operationKey = document.querySelector('#subtract');
+            break;
+        case '*':
+        case 'x':
+            operationKey = document.querySelector('#multiply');
+            break;
+        case '/':
+            operationKey = document.querySelector('#divide');
+            break;
+    }
+
+    if (operationKey !== null) {
+        handleOperationKey.call(operationKey);
+    }
+}
 
 function updateDisplay() {
     if (operation === '') {
