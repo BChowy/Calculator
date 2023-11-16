@@ -34,6 +34,8 @@ OPERATION_KEYS.forEach(key => {
     key.addEventListener('click', handleOperationKey);
 });
 
+document.addEventListener('keydown', handleKeyDown);
+
 // Functions
 function resetCalculator() {
     DISPLAY_INPUT.innerText = '0';
@@ -82,19 +84,19 @@ function handleFraction() {
     }
 }
 
-function handleNumberKey() {
-    const key = this.innerText;
+function handleNumberKey(keyValue, fromKeyDown) {
+    const key = fromKeyDown ? keyValue : this.innerText;
 
     if (operation === '') {
         firstOperand += key;
-        DISPLAY_INPUT.innerText = firstOperand;
+        updateDisplay();
     } else {
         if (equalFlag) {
             secondOperand = '';
             equalFlag = false;
         }
         secondOperand += key;
-        DISPLAY_INPUT.innerText = secondOperand;
+        updateDisplay();
     }
 }
 
@@ -155,6 +157,56 @@ function operate(a, b, operation) {
     if (String(result).includes('.')) result = result.toFixed(2);
     PRE_OPERATION.innerText = `${result} ${operation}`;
     DISPLAY_INPUT.innerText = result;
+}
+
+function handleKeyDown(event) {
+    const key = event.key;
+
+    if (key === 'Enter' || key === '=') {
+        handleCalculate();
+    } else if (key === 'Backspace') {
+        handleBackspace();
+    } else if (key === '.') {
+        handleFraction();
+    } else if (key === '+' || key === '-' || key === '*' || key === 'x' || key === '/') {
+        handleOperationKeyBySymbol(key);
+    } else if (/\d/.test(key)) {
+        handleNumberKey(key, true);
+    } else {
+        return;
+    }
+}
+
+function handleOperationKeyBySymbol(key) {
+    let operationKey = null;
+
+    switch (key) {
+        case '+':
+            operationKey = document.querySelector('#add');
+            break;
+        case '-':
+            operationKey = document.querySelector('#subtract');
+            break;
+        case '*':
+        case 'x':
+            operationKey = document.querySelector('#multiply');
+            break;
+        case '/':
+            operationKey = document.querySelector('#divide');
+            break;
+    }
+
+    if (operationKey !== null) {
+        handleOperationKey.call(operationKey);
+    }
+}
+
+function updateDisplay() {
+    if (operation === '') {
+        DISPLAY_INPUT.innerText = firstOperand;
+    } else {
+        DISPLAY_INPUT.innerText = secondOperand;
+    }
 }
 
 const add = (a, b) => a + b;
